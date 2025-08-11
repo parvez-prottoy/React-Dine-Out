@@ -25,7 +25,7 @@ const OrderSummery = () => {
             totalOrders: 3,
           }}
         >
-          Total Order
+          Pending
         </SummaryCard>
         {/* Summary Card Delivered Orders */}
         <SummaryCard
@@ -36,7 +36,7 @@ const OrderSummery = () => {
             totalOrders: 5,
           }}
         >
-          Total Order
+          Delivered
         </SummaryCard>
       </div>
     </div>
