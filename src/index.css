@@ -35,8 +35,6 @@
 body {
   font-family: "Inter", sans-serif;
   background-color: #1d1d1d;
-  height: 100vh;
-  overflow: hidden;
 }
 
 select {

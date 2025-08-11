@@ -1,11 +1,6 @@
 import SummaryCard from "./SummaryCard";
 
 const OrderSummery = () => {
-  const style = {
-    textColor: "text-yellow-200",
-    textColorNum: "text-yellow-500",
-    bgColor: "bg-yellow-800",
-  };
   return (
     <div>
       <h2 className="text-xl font-bold mb-4">Order Summary</h2>
