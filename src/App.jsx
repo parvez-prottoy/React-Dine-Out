@@ -1,7 +1,9 @@
 const App = () => {
   return (
     <div>
-      <h1>Welcome to Dine Out App</h1>
+      <h1 class="text-3xl font-bold text-center">
+        DineOut - Food Order Management
+      </h1>
     </div>
   );
 };
