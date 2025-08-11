@@ -2,9 +2,9 @@ import ChoseItem from "./ChoseItem";
 
 const ChooseItems = () => {
   return (
-    <div class="mb-4">
-      <label class="block text-sm font-medium mb-2">Choose Items</label>
-      <div class="items-container">
+    <div className="mb-4">
+      <label className="block text-sm font-medium mb-2">Choose Items</label>
+      <div className="items-container">
         <ChoseItem />
         <ChoseItem />
       </div>
