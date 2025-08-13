@@ -2,24 +2,35 @@ import { useState } from "react";
 import ChooseItems from "./ChooseItems";
 import CustomerInput from "./CustomerInput";
 
-const CreateOrder = () => {
+const CreateOrder = ({ onConfirmOrders }) => {
   const [customerName, setCustomerName] = useState("");
   const [orderItems, setOrderItems] = useState([]);
   const handleCusNameChange = (name) => {
     setCustomerName(name);
   };
-  const handlePlaceOrder = () => {
-    if (customerName.length === 0) {
-      return alert("Please enter a customer name before placing an order.");
-    }
-  };
+
   const handleOrderItems = (item) => {
     if (orderItems.some((i) => i.id === item.id)) {
       return setOrderItems(orderItems.filter((i) => i.id !== item.id));
     }
     setOrderItems([...orderItems, item]);
   };
-  console.log(orderItems);
+  const handlePlaceOrder = () => {
+    if (customerName.length === 0) {
+      return alert("Please enter a customer name before placing an order.");
+    }
+    if (orderItems.length === 0) {
+      return alert("Please select at least one item before placing an order.");
+    }
+    onConfirmOrders({
+      customerName,
+      orderItems,
+      totalAmount: orderItems.reduce((total, item) => total + item.price, 0),
+      status: "Pending",
+    });
+    setCustomerName("");
+    setOrderItems([]);
+  };
   return (
     <div className="bg-cardbg rounded-lg p-6 ">
       <h2 className="text-xl font-bold mb-1">CREATE ORDER</h2>
@@ -28,7 +39,10 @@ const CreateOrder = () => {
         their requirements.
       </p>
       {/* Customer Name Input */}
-      <CustomerInput onCusName={handleCusNameChange} />
+      <CustomerInput
+        onCusName={handleCusNameChange}
+        customerName={customerName}
+      />
       {/* Choose Items  */}
       <ChooseItems onOrderItems={handleOrderItems} orderItems={orderItems} />
       {/* Place Order Button */}
